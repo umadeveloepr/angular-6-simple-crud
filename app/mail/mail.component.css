@@ -1,0 +1,6 @@
+thead th:last-child , tbody td:last-child {
+    text-align: right
+}
+.jumbotron {
+    text-align:  center
+}

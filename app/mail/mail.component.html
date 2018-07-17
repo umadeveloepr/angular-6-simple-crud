@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Angular 6 - CRUD</h1>
+      <p class="lead">Simple Angular 6 CRUD operations [insert - update - delete]</p>
+  </div>
+</div>
+
+</div>
+<div class="alert alert-success alert-dismissble fade in show " role="alert" *ngIf="addMessage">
+  add new record success
+</div>
+<div class="alert alert-info alert-dismissble fade in show " role="alert" *ngIf="editMessage">
+    edit  message success 
+  </div>
+  <div class="row">
+  <div class="col-md-12">
+    <form #form="ngForm" (ngSubmit) ="addMail(form.value)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" placeholder="Name" 
+        id="name" name="name" [(ngModel)] ="name">
+
+      </div>
+      <div class="form-group">
+        <label for="mal">Email</label>
+        <input type="mail" class="form-control" placeholder="Mail Address"
+         id="mail" name="mail" [(ngModel)] ="mail">
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="row">
+  <h4> mails list <span class="badge badge-default">{{mails.length}}</span></h4>
+</div>
+
+<div class="row">
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Action</th>
+      </tr>
+      
+    </thead>
+    <tbody>
+      <tr *ngFor ="let mail of mails;let i = index">
+          <td>{{mail.name}}</td>
+          <td>{{mail.mail}}</td>
+          <td>
+              <button class="btn btn-danger mr-2" (click) = "removeMail(i)">Remove</button>
+              <button class="btn btn-info"  (click) = "editMail(i)">Edit</button>
+            </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
